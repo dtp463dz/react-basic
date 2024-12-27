@@ -1,5 +1,5 @@
 import React from 'react';
-
+import ChildComponent from './ChildComponent';
 class MyComponent extends React.Component {
     /**
      * JSX => return block
@@ -76,6 +76,10 @@ class MyComponent extends React.Component {
                     />
                 </form>
 
+                <ChildComponent
+                    name={'Dean'}
+                    age={'21'}
+                />
 
             </>
 
