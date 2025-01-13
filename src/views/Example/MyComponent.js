@@ -21,8 +21,20 @@ class MyComponent extends React.Component {
     addNewJob = (job) => {
         console.log('>>> check job from parent: ', job) // kiem tra xem da dc them chưa
         // them moi vao state
+        let currentJobs = this.state.arrJobs;
+        currentJobs.push(job);
         this.setState({
-            arrJobs: [...this.state.arrJobs, job]
+            // arrJobs: [...this.state.arrJobs, job]  /// ... là toán tử copy
+            arrJobs: currentJobs
+        })
+    }
+
+    // delete job
+    deleteAJob = (job) => {
+        let currentJobs = this.state.arrJobs;
+        currentJobs = currentJobs.filter(item => item.id !== job.id);  // filter: lọc với điều kiện 
+        this.setState({
+            arrJobs: currentJobs
         })
     }
 
@@ -52,6 +64,7 @@ class MyComponent extends React.Component {
 
                 <ChildComponent
                     arrJobs={this.state.arrJobs}
+                    deleteAJob={this.deleteAJob}
                 />
 
             </>
