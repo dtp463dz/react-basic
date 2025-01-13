@@ -8,22 +8,7 @@ class MyComponent extends React.Component {
      * fragment
      */
 
-    /*
-    state = {
-        name: 'Dean',
-        school: 'PNK',
-    }
 
-    handleOnChangeName = (event) => {
-        this.setState({
-            name: event.target.value
-        })
-    }
-
-    handleClickButton = () => {
-        alert('Click me')
-    }
-    */
     state = {
         arrJobs: [
             { id: 'abcJob1', title: 'Dev', salary: '500' },
@@ -32,7 +17,14 @@ class MyComponent extends React.Component {
         ]
     }
 
-
+    // them job moi o state
+    addNewJob = (job) => {
+        console.log('>>> check job from parent: ', job) // kiem tra xem da dc them chưa
+        // them moi vao state
+        this.setState({
+            arrJobs: [...this.state.arrJobs, job]
+        })
+    }
 
     render() {
         console.log('>> call render: ', this.state)
@@ -52,7 +44,10 @@ class MyComponent extends React.Component {
                 <div className='third'>
                     <button onClick={() => this.handleClickButton()}>Click Me</button>
                 </div> */}
-                <AddComponent />
+                <AddComponent
+                    addNewJob={this.addNewJob}
+
+                />
 
 
                 <ChildComponent
