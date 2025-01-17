@@ -3,7 +3,12 @@
         cursor: pointer;
     }
 
-    .add-todo {}
+    .add-todo {
+
+        .add {
+            margin: 0 10px;
+        }
+    }
 
     .list-todo-content {
         width: 400px;

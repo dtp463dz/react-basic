@@ -1,5 +1,8 @@
 import React from 'react';
 import './ListTodo.scss';
+import AddTodo from './AddTodo';
+// toastity
+import { toast } from 'react-toastify';
 class ListTodo extends React.Component {
     state = {
         listTodos: [
@@ -8,16 +11,29 @@ class ListTodo extends React.Component {
             { id: 'todo3', title: 'Fixing bugs' },
         ]
     }
+
+    addNewTodo = (todo) => {
+        let currenListTodo = this.state.listTodos;
+        currenListTodo.push(todo)
+        this.setState({
+            // listTodos: [...this.state.listTodos, todo]
+            listTodos: currenListTodo
+        })
+        // toastity
+        toast.success("Success!!!");
+        // toastity
+        // toast.error("ERROR!!!");
+    }
     render() {
         // let listTodos = this.state.listTodos
         let { listTodos } = this.state;
 
         return (
             <div className="list-todo-container">
-                <div className='add-todo'>
-                    <input type="text" />
-                    <button type="button" className='add'>Add</button>
-                </div>
+                <AddTodo
+                    addNewTodo={this.addNewTodo}
+                />
+
                 <div className="list-todo-content">
                     {listTodos && listTodos.length > 0 &&
                         listTodos.map((item, index) => {
