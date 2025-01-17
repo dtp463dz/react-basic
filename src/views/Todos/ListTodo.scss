@@ -1,4 +1,8 @@
 .list-todo-container {
+    button {
+        cursor: pointer;
+    }
+
     .add-todo {}
 
     .list-todo-content {
@@ -9,6 +13,18 @@
             height: 40px;
             border-bottom: 1px solid grey;
             margin: 10px;
+
+            &:first-child {
+                background-color: yellow;
+            }
+
+            span {
+                padding-right: 10px;
+            }
+
+            button.edit {
+                margin: 0 10px;
+            }
         }
     }
 }
