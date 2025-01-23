@@ -1,10 +1,19 @@
 import logo from './logo.svg';
 import './App.scss';
-// import MyComponent from './Example/MyComponent.js';
+import MyComponent from './Example/MyComponent.js';
 import ListTodo from './Todos/ListTodo.js';
-
+import Nav from './Nav/Nav.js';
+import Home from './Example/Home.js';
 // toastity
 import { ToastContainer } from 'react-toastify';
+
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+} from "react-router-dom";
+
+
 /**
  * 2 Components: class component / function component (function / arrow)
  * JSX
@@ -13,30 +22,36 @@ import { ToastContainer } from 'react-toastify';
 function App() {
   // const App = () =>{}
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Simple TODO App with React.js
-        </p>
+    <BrowserRouter>
+      <div className="App">
 
-        {/* <MyComponent /> */}
-        <ListTodo />
-      </header>
+        <header className="App-header">
+          <Nav />
+          <img src={logo} className="App-logo" alt="logo" />
+          <Routes>
+            <Route path="/" element={<Home />}>
+            </Route>
+            <Route path="/todo" element={<ListTodo />}>
+            </Route>
+            <Route path="/about" element={<MyComponent />} >
+            </Route>
+          </Routes>
+        </header>
 
-      {/* // toastity */}
-      <ToastContainer
-        position="top-right"
-        autoClose={5000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick={false}
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-      />
-    </div>
+        {/* // toastity */}
+        <ToastContainer
+          position="top-right"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick={false}
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+        />
+      </div>
+    </BrowserRouter>
   );
 }
 
