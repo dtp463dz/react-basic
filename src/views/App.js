@@ -5,6 +5,7 @@ import ListTodo from './Todos/ListTodo.js';
 import Nav from './Nav/Nav.js';
 import Home from './Example/Home.js';
 import ListUser from './Users/ListUser.js';
+import DetailUser from './Users/DetailUser.js';
 // toastity
 import { ToastContainer } from 'react-toastify';
 
@@ -38,6 +39,8 @@ function App() {
             <Route path="/about" element={<MyComponent />} >
             </Route>
             <Route path="/user" element={<ListUser />} >
+            </Route>
+            <Route path="/user/:id" element={<DetailUser />} >
             </Route>
           </Routes>
         </header>
