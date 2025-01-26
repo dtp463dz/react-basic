@@ -4,6 +4,7 @@ import MyComponent from './Example/MyComponent.js';
 import ListTodo from './Todos/ListTodo.js';
 import Nav from './Nav/Nav.js';
 import Home from './Example/Home.js';
+import ListUser from './Users/ListUser.js';
 // toastity
 import { ToastContainer } from 'react-toastify';
 
@@ -35,6 +36,8 @@ function App() {
             <Route path="/todo" element={<ListTodo />}>
             </Route>
             <Route path="/about" element={<MyComponent />} >
+            </Route>
+            <Route path="/user" element={<ListUser />} >
             </Route>
           </Routes>
         </header>
