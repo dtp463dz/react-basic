@@ -8,6 +8,7 @@ import ListUser from './Users/ListUser.js';
 import DetailUser from './Users/DetailUser.js';
 // toastity
 import { ToastContainer } from 'react-toastify';
+import GreetingMessage from './HPNY/GreetingMessage.js';
 
 import {
   BrowserRouter,
@@ -41,6 +42,8 @@ function App() {
             <Route path="/user" element={<ListUser />} >
             </Route>
             <Route path="/user/:id" element={<DetailUser />} >
+            </Route>
+            <Route path="/hpny" element={<GreetingMessage />} >
             </Route>
           </Routes>
         </header>

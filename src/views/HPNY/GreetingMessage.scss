@@ -1,0 +1,80 @@
+.new-year-container {
+    text-align: center;
+    padding: 50px;
+    background-color: #f0f8ff;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.title {
+    font-size: 3em;
+    color: #ff4500;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.message {
+    font-size: 1.2em;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+.fireworks {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.firework {
+    position: relative;
+    width: 50px;
+    height: 50px;
+    margin: 20px;
+}
+
+.spark {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background-color: #ffd700; // Default color
+    animation: firework-burst 1.5s ease-in-out infinite;
+    transform-origin: center center;
+
+    @for $i from 1 through 20 {
+        &:nth-child(#{$i}) {
+            $angle: (
+                $i - 1) * 18deg; // Evenly distribute sparks
+            $distance: random(20) + 10;
+            $size: random(3) + 3;
+            transform: translate(calc(cos($angle) * #{$distance}px),
+                calc(sin($angle) * #{$distance}px)) scale(random(3) / 2 + 0.5
+        );
+        width: #{$size}px;
+        height: #{$size}px;
+        background-color: nth((#ff4500, #ffd700, #00ff7f, #00bfff, #ee82ee), random(5)); //Random color
+        border-radius: if(random(2)==1, 50%, 0);
+    }
+}
+}
+
+@keyframes firework-burst {
+    0% {
+        transform: translate(0, 0) scale(0.3);
+        opacity: 1;
+    }
+
+    50% {
+        transform: scale(1.1);
+        opacity: 0.8;
+    }
+
+    100% {
+        transform: scale(0.1);
+        opacity: 0;
+    }
+}
