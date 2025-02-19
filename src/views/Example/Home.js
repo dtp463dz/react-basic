@@ -2,7 +2,7 @@ import React from "react";
 // import { withRouter } from "react-router-dom";
 import Color from "../HOC/Color";
 import logo from '../../assets/images/hoa2.jpg';
-
+import { connect } from "react-redux";
 class Home extends React.Component {
     componentDidMount() {
         setTimeout(() => {
@@ -11,7 +11,7 @@ class Home extends React.Component {
     }
 
     render() {
-        console.log('>>> check props: ', this.props)
+        console.log('>>> check props: ', this.props.dataRedux)
         return (
             <>
                 <div>
@@ -26,6 +26,10 @@ class Home extends React.Component {
     }
 }
 
+// state của Redux (rootReducer.js)
+const mapStateToProps = (state) => {
+    return { dataRedux: state.users }
+}
 
 // export default withRouter(Home);
-export default Color(Home);  // random Color
+export default connect(mapStateToProps)(Color(Home));  // random Color
