@@ -19,9 +19,13 @@ const rootReducer = (state = initState, action) => {
                 // copy state 
                 ...state, users
             };
-        // case y:
-        //   // code block
-        //   break;
+        case 'CREATE_USER':
+            let id = Math.floor(Math.random() * 10000)
+            let user = { id: id, name: `random - ${id}` }
+            return {
+                // user copy trạng thái hiện tại và đấy thêm 1 user mới 
+                ...state, users: [...state.users, user]
+            }
         default:
             return state;
     }
