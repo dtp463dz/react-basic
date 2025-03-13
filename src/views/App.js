@@ -15,6 +15,7 @@ import {
   Routes,
   Route,
 } from "react-router-dom";
+import Tutorial from './explain/Tutorial.jsx';
 
 
 /**
@@ -43,6 +44,8 @@ function App() {
             <Route path="/user/:id" element={<DetailUser />} >
             </Route>
             <Route path="/hpny" element={<GreetingMessage />} >
+            </Route>
+            <Route path="/tutorial" element={<Tutorial />} >
             </Route>
           </Routes>
         </header>
